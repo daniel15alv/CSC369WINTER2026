@@ -1,5 +1,7 @@
 #Amazon Final Draft
+
 #Introduction
+
 How do new users’ sentiments toward Amazon change over time? Initial user experiences can influence long-term engagement and purchasing behavior; 
 through understanding user sentiments, Amazon may gain insights into user expectation changes. Using the Amazon Reviews dataset, this analysis examines whether 
 new users feel differently about Amazon from the time they initially bought one of their products. Sentiment is measured using review star ratings, whether the “over time”
@@ -7,6 +9,7 @@ feature is defined as changes within users during their first 90 days reviewing 
 be fluctuation when it comes to the change in sentiment among users, regardless if that change is negative or positive.
 
 #Limitations
+
 The original Amazon Reviews dataset (~127 GB) posed as the largest constraint, restricting analysis to reviews from 2018 only. Upon streaming ingestion and writing the files
 to Parquet, a “new user” is defined as a reviewer’s first observed rating in 2018. Most users (roughly 72% of users)  left only one review, additionally restricting analysis 
 to users with at least two reviews within their first 90 days of activity.
@@ -19,11 +22,13 @@ difficult. Instead of analyzing raw rating levels that could obscure meaningful 
 sentiment shifts.
 
 Data Cleaning, Feature Engineering, & Methodology
+
 A “new user” is defined as a reviewer’s first observed rating in 2018. For each eligible user, account age was computed relative to their first time reviewing. Two windows 
 were defined within the first 90 days. “Early” window: reviews within the first 30 days, and “Late” window: reviews from days 60–90. Sentiment change, or “delta” per user, 
 was then measured as “AvgRating​Late(i) - AvgRatingEarly(i)”. 
 
 #Initial Results 
+
 Among the 3,661 users with activity in both early and late windows, the average “early” rating is 4.26 stars, whereas the average “late” rating is 4.28 stars. The mean 
 sentiment change was observed to be 0.017 and a median of 0. About 28.4% of users showed “improvement” in their ratings, 25.4% showed a “decline”, and 46.2% showed no 
 measurable change.
@@ -38,6 +43,7 @@ With H0: E[Delta] = 0, the test yielded a large p-value of 0.479, indicating the
 Moreover, the observed mean change in sentiment (0.0017 stars) further reinforces this.
 
 #Final Results
+
 Although the aggregated sentiment change is zero or near 0, the observed stability may “mask” hidden dynamics within. Subgroup analysis reveals stronger conditional patterns.
 Users were now grouped by their first observed rating (1-5), and then the average delta was computed within each group (rather than within-user). 
 
@@ -50,6 +56,7 @@ Because the majority of users begin with 5-star reviews, slight declines among t
 aggregate sentiment appears stable despite meaningful subgroup dynamics, reaffirming the initial results in which the mean sentiment does not change at all.
 
 #Takeaways
+
 At the initial (aggregate) level, sentiment stayed statistically “stable” with nearly half of users displaying no measurable change, not supporting my hypothesis that there 
 will be fluctuation in sentiment among users. However, subgroup analysis revealed more interesting findings; users who began with low ratings showed visible improvement over 
 time, whereas users who began highly satisfied regressed very slightly. This aligns much more with my hypothesis. Through my findings, it is fair to make the implication that
