@@ -21,7 +21,7 @@ whereas many people who feel indifferent don’t bother to write a review. Becau
 difficult. Instead of analyzing raw rating levels that could obscure meaningful findings, measuring changes within users mitigates positivity bias and focuses on directional 
 sentiment shifts.
 
-Data Cleaning, Feature Engineering, & Methodology
+# Data Cleaning, Feature Engineering, & Methodology
 
 A “new user” is defined as a reviewer’s first observed rating in 2018. For each eligible user, account age was computed relative to their first time reviewing. Two windows 
 were defined within the first 90 days. “Early” window: reviews within the first 30 days, and “Late” window: reviews from days 60–90. Sentiment change, or “delta” per user, 
