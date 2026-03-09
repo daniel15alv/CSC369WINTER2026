@@ -1,6 +1,6 @@
-#Amazon Final Draft
+# Amazon Final Draft
 
-#Introduction
+# Introduction
 
 How do new users’ sentiments toward Amazon change over time? Initial user experiences can influence long-term engagement and purchasing behavior; 
 through understanding user sentiments, Amazon may gain insights into user expectation changes. Using the Amazon Reviews dataset, this analysis examines whether 
@@ -8,7 +8,7 @@ new users feel differently about Amazon from the time they initially bought one 
 feature is defined as changes within users during their first 90 days reviewing a product, as observed in 2018.  Rather than a uniform trend, I hypothesize that there will 
 be fluctuation when it comes to the change in sentiment among users, regardless if that change is negative or positive.
 
-#Limitations
+# Limitations
 
 The original Amazon Reviews dataset (~127 GB) posed as the largest constraint, restricting analysis to reviews from 2018 only. Upon streaming ingestion and writing the files
 to Parquet, a “new user” is defined as a reviewer’s first observed rating in 2018. Most users (roughly 72% of users)  left only one review, additionally restricting analysis 
@@ -27,7 +27,7 @@ A “new user” is defined as a reviewer’s first observed rating in 2018. For
 were defined within the first 90 days. “Early” window: reviews within the first 30 days, and “Late” window: reviews from days 60–90. Sentiment change, or “delta” per user, 
 was then measured as “AvgRating​Late(i) - AvgRatingEarly(i)”. 
 
-#Initial Results 
+# Initial Results 
 
 Among the 3,661 users with activity in both early and late windows, the average “early” rating is 4.26 stars, whereas the average “late” rating is 4.28 stars. The mean 
 sentiment change was observed to be 0.017 and a median of 0. About 28.4% of users showed “improvement” in their ratings, 25.4% showed a “decline”, and 46.2% showed no 
@@ -42,7 +42,7 @@ To formally assess whether there is truly a change in sentiment or not (average 
 With H0: E[Delta] = 0, the test yielded a large p-value of 0.479, indicating there is no statistical evidence of a change in average sentiment within the first 90 days.
 Moreover, the observed mean change in sentiment (0.0017 stars) further reinforces this.
 
-#Final Results
+# Final Results
 
 Although the aggregated sentiment change is zero or near 0, the observed stability may “mask” hidden dynamics within. Subgroup analysis reveals stronger conditional patterns.
 Users were now grouped by their first observed rating (1-5), and then the average delta was computed within each group (rather than within-user). 
