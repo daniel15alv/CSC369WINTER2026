@@ -55,7 +55,7 @@ mild decrease (delta of -0.45 stars in 9 months).
 Because the majority of users begin with 5-star reviews, slight declines among this group counterbalance strong improvements among initially dissatisfied users. As a result, 
 aggregate sentiment appears stable despite meaningful subgroup dynamics, reaffirming the initial results in which the mean sentiment does not change at all.
 
-#Takeaways
+# Takeaways
 
 At the initial (aggregate) level, sentiment stayed statistically “stable” with nearly half of users displaying no measurable change, not supporting my hypothesis that there 
 will be fluctuation in sentiment among users. However, subgroup analysis revealed more interesting findings; users who began with low ratings showed visible improvement over 
